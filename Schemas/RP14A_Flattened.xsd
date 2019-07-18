@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.ins.gsi.gov.uk/FileUpload/RP14A_Application" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.ins.gsi.gov.uk/FileUpload/RP14A_Application" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="RP14A">
+		<xsd:annotation>
+			<xsd:documentation>Comment describing your root element</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Employee" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Header">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="CaseReference" type="CaseReferenceType" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Case Reference to which this document relates.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="DMSDocumentID" type="xsd:string" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>The DMS document ID to which this document relates.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="ClaimReference" type="xsd:string" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Claim Reference to which this document relates.</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="CHAMPDocumentID" type="xsd:string" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="EmployerName" type="xsd:string"/>
+							<xsd:element name="EmployeeName" type="NameType"/>
+							<xsd:element name="NIClass" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="1"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="NINO" type="NinoType"/>
+							<xsd:element name="DateOfBirth" type="xsd:date" minOccurs="0"/>
+							<xsd:element name="StartDate" type="xsd:date" minOccurs="0"/>
+							<xsd:element name="DateNoticeGiven" type="xsd:date" minOccurs="0"/>
+							<xsd:element name="EndDate" type="xsd:date" minOccurs="0"/>
+							<xsd:element name="PayDetails">
+								<xsd:complexType>
+									<xsd:sequence>
+									<!--  Added Restriction to allow only 2 decimal digits 27-09-2011 14:08  -->
+										<xsd:element name="BasicPayPerWeek" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:decimal">
+													<xsd:fractionDigits value="2"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										
+										<xsd:element name="WeeklyPayDay" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Pay day, if paid weekly. </xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:enumeration value="Sunday"/>
+													<xsd:enumeration value="Monday"/>
+													<xsd:enumeration value="Tuesday"/>
+													<xsd:enumeration value="Wednesday"/>
+													<xsd:enumeration value="Thursday"/>
+													<xsd:enumeration value="Friday"/>
+													<xsd:enumeration value="Saturday"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="ArrearsOfPay" minOccurs="0">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ArrearsOfPayPeriod1" minOccurs="0">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="AOP1StartDate" type="xsd:date" minOccurs="0"/>
+																<xsd:element name="AOP1EndDate" type="xsd:date" minOccurs="0"/>
+												<!--  Added Restriction to allow only 2 decimal digits 27-09-2011 14:27  -->
+																<xsd:element name="AOPOwed1" minOccurs="0">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:decimal">
+																			<xsd:fractionDigits value="2"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="AOPPayType1" minOccurs="0">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="wages"/>
+																			<xsd:enumeration value="bouncedcheque"/>
+																			<xsd:enumeration value="attachmentofearnings"/>
+																			<xsd:enumeration value="overtime"/>
+																			<xsd:enumeration value="commission"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="ArrearsOfPayPeriod2" minOccurs="0">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="AOP2StartDate" type="xsd:date" minOccurs="0"/>
+																<xsd:element name="AOP2EndDate" type="xsd:date" minOccurs="0"/>
+												<!--  Added Restriction to allow only 2 decimal digits 27-09-2011 14:27  -->
+																<xsd:element name="AOPOwed2" minOccurs="0">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:decimal">
+																			<xsd:fractionDigits value="2"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="AOPPayType2" minOccurs="0">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="wages"/>
+																			<xsd:enumeration value="bouncedcheque"/>
+																			<xsd:enumeration value="attachmentofearnings"/>
+																			<xsd:enumeration value="overtime"/>
+																			<xsd:enumeration value="commission"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="ArrearsOfPayPeriod3" minOccurs="0">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="AOP3StartDate" type="xsd:date" minOccurs="0"/>
+																<xsd:element name="AOP3EndDate" type="xsd:date" minOccurs="0"/>
+												<!--  Added Restriction to allow only 2 decimal digits 27-09-2011 14:27  -->
+																<xsd:element name="AOPOwed3" minOccurs="0">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:decimal">
+																			<xsd:fractionDigits value="2"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="AOPPayType3" minOccurs="0">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="wages"/>
+																			<xsd:enumeration value="bouncedcheque"/>
+																			<xsd:enumeration value="attachmentofearnings"/>
+																			<xsd:enumeration value="overtime"/>
+																			<xsd:enumeration value="commission"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="ArrearsOfPayPeriod4" minOccurs="0">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="AOP4StartDate" type="xsd:date" minOccurs="0"/>
+																<xsd:element name="AOP4EndDate" type="xsd:date" minOccurs="0"/>
+												<!--  Added Restriction to allow only 2 decimal digits 27-09-2011 14:28  -->
+																<xsd:element name="AOPOwed4" minOccurs="0">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:decimal">
+																			<xsd:fractionDigits value="2"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+																<xsd:element name="AOPPayType4" minOccurs="0">
+																	<xsd:simpleType>
+																		<xsd:restriction base="xsd:string">
+																			<xsd:enumeration value="wages"/>
+																			<xsd:enumeration value="bouncedcheque"/>
+																			<xsd:enumeration value="attachmentofearnings"/>
+																			<xsd:enumeration value="overtime"/>
+																			<xsd:enumeration value="commission"/>
+																		</xsd:restriction>
+																	</xsd:simpleType>
+																</xsd:element>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Holiday" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="HolidayYearStart" type="xsd:date" minOccurs="0"/>
+										<xsd:element name="HolidayNotPaid" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Holiday taken but not paid </xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="Holiday1" minOccurs="0">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="Holiday1StartDate" type="xsd:date" minOccurs="0"/>
+																<xsd:element name="Holiday1EndDate" type="xsd:date" minOccurs="0"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="Holiday2" minOccurs="0">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="Holiday2StartDate" type="xsd:date" minOccurs="0"/>
+																<xsd:element name="Holiday2EndDate" type="xsd:date" minOccurs="0"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+													<xsd:element name="Holiday3" minOccurs="0">
+														<xsd:complexType>
+															<xsd:sequence>
+																<xsd:element name="Holiday3StartDate" type="xsd:date" minOccurs="0"/>
+																<xsd:element name="Holiday3EndDate" type="xsd:date" minOccurs="0"/>
+															</xsd:sequence>
+														</xsd:complexType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+							<!--  Added Restriction to allow only 2 decimal digits 27-09-2011 14:28  -->
+										<xsd:element name="NoDaysHolidayOwed" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:decimal">
+													<xsd:fractionDigits value="2"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="NinoType">
+		<xsd:restriction base="xsd:string">
+      <xsd:pattern value="(?!BG|GB|NK|KN|TN|NT|ZZ|bg|gb|nk|kn|tn|nt|zz)[A-CEGHJ-PR-TW-Za-ceghj-pr-tw-z]{1}[A-CEGHJ-NPR-TW-Za-ceghj-npr-tw-z]{1}[0-9]{6}[A-DFMa-dfm]{0,1}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+  <xsd:simpleType name="CaseReferenceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="CN[0-9]{8}|cn[0-9]{8}|Cn[0-9]{8}|cN[0-9]{8}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+	<xsd:simpleType name="YesNoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="yes"/>
+			<xsd:enumeration value="no"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="NameType">
+		<xsd:sequence>
+			<xsd:element name="Surname" type="xsd:string"/>
+			<xsd:element name="Forenames" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Title" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
