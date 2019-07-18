@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ins.gsi.gov.uk/FileUpload/RP14_Application" targetNamespace="http://www.ins.gsi.gov.uk/FileUpload/RP14_Application" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="RP14">
+		<xsd:annotation>
+			<xsd:documentation>Comment describing your root element</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Header" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="CaseReference" type="CaseReferenceType" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Case Reference to which this document relates.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="DMSDocumentID" type="xsd:string" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>The DMS document ID to which this document relates.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="ClaimReference" type="xsd:string" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Claim Reference to which this document relates.</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="CHAMPDocumentID" type="xsd:string" minOccurs="0"/>
+							<xsd:element name="Source" type="xsd:string" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Source of this document</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="ExternalReference" type="xsd:string" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Third party identifying reference</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="NameOfBusiness">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="60"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyNumber" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="12"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyAddrLine1">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="35"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyAddrLine2" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="35"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyAddrLine3" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="35"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyAddrLine4" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="35"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyAddrTown" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="35"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyAddrCounty" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="35"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyAddrPostcode" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="10"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="CompanyAddrCountry" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="10"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="IncorporationDate" type="xsd:date" minOccurs="0"/>
+				<xsd:element name="NatureOfBusiness" type="xsd:string" minOccurs="0"/>
+				<xsd:element name="PAYE" type="PayeType" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>TODO What is the format of this?</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="SICCode" minOccurs="0">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:string">
+							<xsd:maxLength value="255"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="Directors">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Director1" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Director1Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director1Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director1Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director1FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director1Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director1NINO" type="NinoType" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Director2" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Director2Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director2Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director2Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director2FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director2Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director2NINO" type="NinoType" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Director3" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Director3Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director3Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director3Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director3FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director3Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director3NINO" type="NinoType" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Director4" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Director4Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director4Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director4Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director4FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director4Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director4NINO" type="NinoType" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Director5" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Director5Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director5Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director5Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director5FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director5Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director5NINO" type="NinoType" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Director6" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Director6Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director6Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director6Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director6FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director6Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Director6NINO" type="NinoType" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="ClaimingRPAsEmployee" type="YesNoType" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Are any of the directors claiming redundancy payments as employees of the company?</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Shareholders" minOccurs="0">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Shareholder1">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Shareholder1Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder1Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder1Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder1FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder1Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder1NoOfSharesHeld" type="xsd:integer" minOccurs="0"/>
+						<!--  Added Restriction to allow only 2 decimal digits 02-11-2011 11:47  -->				
+										<xsd:element name="Shareholder1Percentage" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:decimal">
+													<xsd:fractionDigits value="2"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Shareholder2" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Shareholder2Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder2Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder2Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder2FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder2Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder2NoOfSharesHeld" type="xsd:integer" minOccurs="0"/>
+						<!--  Added Restriction to allow only 2 decimal digits 02-11-2011 11:47  -->				
+										<xsd:element name="Shareholder2Percentage" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:decimal">
+													<xsd:fractionDigits value="2"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Shareholder3" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Shareholder3Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder3Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder3Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder3FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder3Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder3NoOfSharesHeld" type="xsd:integer" minOccurs="0"/>
+						<!--  Added Restriction to allow only 2 decimal digits 02-11-2011 11:48  -->				
+										<xsd:element name="Shareholder3Percentage" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:decimal">
+													<xsd:fractionDigits value="2"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Shareholder4" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Shareholder4Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder4Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder4Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder4FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder4Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder4NoOfSharesHeld" type="xsd:integer" minOccurs="0"/>
+						<!--  Added Restriction to allow only 2 decimal digits 02-11-2011 11:48  -->				
+										<xsd:element name="Shareholder4Percentage" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:decimal">
+													<xsd:fractionDigits value="2"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Shareholder5" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Shareholder5Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder5Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder5Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder5FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder5Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder5NoOfSharesHeld" type="xsd:integer" minOccurs="0"/>
+						<!--  Added Restriction to allow only 2 decimal digits 02-11-2011 11:48  -->				
+										<xsd:element name="Shareholder5Percentage" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:decimal">
+													<xsd:fractionDigits value="2"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Shareholder6" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Shareholder6Surname" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder6Forenames" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder6Title" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder6FullName" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder6Initials" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="Shareholder6NoOfSharesHeld" type="xsd:integer" minOccurs="0"/>
+						<!--  Added Restriction to allow only 2 decimal digits 02-11-2011 11:48  -->				
+										<xsd:element name="Shareholder6Percentage" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:decimal">
+													<xsd:fractionDigits value="2"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="AssociatedCompanies" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Are there any legally associated companies of the insolvent company?</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="LegallyAssociatedCompanies" type="YesNoType" minOccurs="0"/>
+							<xsd:element name="AssociatedCompany1" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AssocCompany1Name">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="60"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocCompany1Number" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="AssocComp1AddrLine1">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp1AddrLine2" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp1AddrLine3" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp1AddrLine4" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp1AddrTown" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp1AddrCounty" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp1AddrPostcode" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp1AddrCountry" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp1OfferToEmployEmployees" minOccurs="0">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AssocComp1OfferMade" type="YesNoType"/>
+													<xsd:element name="AssocComp1DetailsOfOffer" minOccurs="0"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="AssocComp1ReasonForAssociation" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Legal Reason for this company to be associated with the main one on the claim</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="255"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<!--   ASSOC COMP2			-->
+							<xsd:element name="AssociatedCompany2" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AssocCompany2Name">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="60"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocCompany2Number" type="xsd:string" minOccurs="0"/>
+										<xsd:element name="AssocComp2AddrLine1">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp2AddrLine2" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp2AddrLine3" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp2AddrLine4" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp2AddrTown" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp2AddrCounty" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp2AddrPostcode" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp2AddrCountry" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="AssocComp2OfferToEmployEmployees" minOccurs="0">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="AssocComp2OfferMade" type="YesNoType"/>
+													<xsd:element name="AssocComp2DetailsOfOffer" minOccurs="0"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="AssocComp2ReasonForAssociation" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Legal Reason for this company to be associated with the main one on the claim</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="255"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<!--  ASSOC COMP 2   -->
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="Employees">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="NoOfEmployees" type="xsd:integer" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>How many people were employed by the business on the date it became insolvent?</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="EmployeesClaimingContinuity" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Employees claiming continuity of employment prior to the date of incorporation</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ClaimingContinuity" type="YesNoType" minOccurs="0"/>
+										<xsd:element name="EmployerName">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="60"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="EmployerAddrLine1">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="EmployerAddrLine2" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="EmployerAddrLine3" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="EmployerAddrLine4" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="EmployerAddrTown" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="EmployerAddrCounty" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="EmployerAddrPostcode" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="EmployerAddrCountry" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TradingDate" type="xsd:date" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Date this employer started trading</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+										<xsd:element name="ShouldClaimsBeAccepted" type="YesNoType" minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation>Should claims for continuity of employment be accepted?</xsd:documentation>
+											</xsd:annotation>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="Strikes" type="YesNoType" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Have there ever been any official or unofficial strikes?</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="CarryOverHolidayEntitlement" type="YesNoType" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Were employees entitled to ‘carry over’ holiday from the previous years entitlement?</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="InsolvencyDetails">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="InsolvencyDate" type="xsd:date" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>On what date did the business formally become insolvent within the meaning of section 183(3) of the Employment Rights Act 1996?</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="InsolvencyType" type="xsd:string" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="TransferDetails" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Has there been, or do you anticipate that there is likely to be, a transfer</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="TransferType" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:enumeration value="asset only"/>
+										<xsd:enumeration value="whole business"/>
+										<xsd:enumeration value="part of business"/>
+										<xsd:enumeration value="other"/>
+										<xsd:enumeration value="none"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="TransferTo" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>To whom was the transfer made or do you anticipate the transfer will be made?</xsd:documentation>
+								</xsd:annotation>
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="Name">
+											<xsd:annotation>
+												<xsd:documentation>Name of person or company.</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="60"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TransferToAddrLine1">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TransferToAddrLine2" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TransferToAddrLine3" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TransferToAddrLine4" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TransferToAddrTown" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TransferToAddrCounty" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="35"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TransferToAddrPostcode" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TransferToAddrCountry" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+													<xsd:maxLength value="10"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TransferDate" type="xsd:date" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Date that the transfer was made or likely to occur</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+							<xsd:element name="NegotiationDate" type="xsd:date" minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation>Date negotiations began</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="PayRecordsContact">
+					<xsd:annotation>
+						<xsd:documentation>Whom can be contacted to answer queries about the former employees entitlements?</xsd:documentation>
+					</xsd:annotation>
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="Name">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="60"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsAddrLine1">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="35"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsAddrLine2" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="35"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsAddrLine3" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="35"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsAddrLine4" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="35"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsAddrTown" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="35"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsAddrCounty" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="35"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsAddrPostcode" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="10"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsAddrCountry" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="10"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsPhoneNumber" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="40"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PayRecordsEmailAddress" type="xsd:string" minOccurs="0"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="InsolvencyPractitioner" minOccurs="0">
+					<xsd:complexType>
+						<xsd:complexContent>
+							<xsd:extension base="InsolvencyPractitionerType">
+								<xsd:sequence>
+									<xsd:element name="DeclarationAgreement" type="xsd:boolean"/>
+								</xsd:sequence>
+							</xsd:extension>
+						</xsd:complexContent>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="NinoType">
+		<xsd:restriction base="xsd:string">
+      <xsd:pattern value="(?!BG|GB|NK|KN|TN|NT|ZZ|bg|gb|nk|kn|tn|nt|zz)[A-CEGHJ-PR-TW-Za-ceghj-pr-tw-z]{1}[A-CEGHJ-NPR-TW-Za-ceghj-npr-tw-z]{1}[0-9]{6}[A-DFMa-dfm]{0,1}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+  <xsd:simpleType name="CaseReferenceType">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="CN[0-9]{8}|cn[0-9]{8}|Cn[0-9]{8}|cN[0-9]{8}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+	<xsd:simpleType name="YesNoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="yes"/>
+			<xsd:enumeration value="no"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:complexType name="NameType">
+		<xsd:sequence>
+			<xsd:element name="Surname" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Forenames" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Title" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="FullName" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="Initials" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+  <xsd:complexType name="PayeType">
+    <xsd:sequence>
+      <xsd:element name="District">
+        <xsd:annotation>
+          <xsd:documentation>The first part of your Employers PAYE Reference (upto 3 digits)</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">           
+            <xsd:maxLength value="3"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="Reference">
+        <xsd:annotation>
+          <xsd:documentation>The second part of your Employers PAYE Reference - the letters and numbers after the slash normally 6 or 7 characters</xsd:documentation>
+        </xsd:annotation>
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:string">            
+            <xsd:maxLength value="7"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+	<xsd:complexType name="InsolvencyPractitionerType">
+		<xsd:sequence>
+			<xsd:element name="IPRegistrationNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IPFirmName" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Insolvency Pratitioners Firm/Company name</xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="255"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPName" type="xsd:string" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>The Insolvency Pratitioners name</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="IPAddressLine1" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPAddressLine2" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPAddressLine3" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPAddressLine4" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPAddressTown" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPAddressCounty" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="35"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPAddressPostcode" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPAddressCountry" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="10"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="IPTelephoneNumber" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="IPEmailAddress" type="xsd:string" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
