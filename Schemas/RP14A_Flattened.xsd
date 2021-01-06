@@ -57,6 +57,88 @@
 											</xsd:simpleType>
 										</xsd:element>
 										
+										<xsd:element name="ComponentPayPerWeek1" minOccurs="0" maxOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1" type="ComponentType" />
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1" type="OptionalCurrencyType" />
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" type="ComponentRateStatusType" default="Rate provided"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+										<xsd:element name="ComponentPayPerWeek2" minOccurs="0" maxOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1" type="ComponentType" />
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1" type="OptionalCurrencyType" />
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" type="ComponentRateStatusType" default="Rate provided"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+										<xsd:element name="ComponentPayPerWeek3" minOccurs="0" maxOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1" type="ComponentType" />
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1" type="OptionalCurrencyType" />
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" type="ComponentRateStatusType" default="Rate provided"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+										<xsd:element name="ComponentPayPerWeek4" minOccurs="0" maxOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1" type="ComponentType" />
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1" type="OptionalCurrencyType" />
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" type="ComponentRateStatusType" default="Rate provided"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+										<xsd:element name="ComponentPayPerWeek5" minOccurs="0" maxOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1" type="ComponentType" />
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1" type="OptionalCurrencyType" />
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" type="ComponentRateStatusType" default="Rate provided"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+										<xsd:element name="ComponentPayPerWeek6" minOccurs="0" maxOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1" type="ComponentType" />
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1" type="OptionalCurrencyType" />
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" type="ComponentRateStatusType" default="Rate provided"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+										<xsd:element name="ComponentPayPerWeek7" minOccurs="0" maxOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1" type="ComponentType" />
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1" type="OptionalCurrencyType" />
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" type="ComponentRateStatusType" default="Rate provided"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+										<xsd:element name="ComponentPayPerWeek8" minOccurs="0" maxOccurs="1">
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1" type="ComponentType" />
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1" type="OptionalCurrencyType" />
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" type="ComponentRateStatusType" default="Rate provided"/>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+
+
+
 										<xsd:element name="WeeklyPayDay" minOccurs="0">
 											<xsd:annotation>
 												<xsd:documentation>Pay day, if paid weekly. </xsd:documentation>
@@ -267,4 +349,41 @@
 			<xsd:element name="Title" type="xsd:string" minOccurs="0"/>
 		</xsd:sequence>
 	</xsd:complexType>
+	<xsd:simpleType name="ComponentType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Redundancy Pay"/>
+			<xsd:enumeration value="Arrears of Pay"/>
+			<xsd:enumeration value="Holiday Pay Taken Not Paid"/>
+			<xsd:enumeration value="Holiday Pay Accrued"/>
+			<xsd:enumeration value="Protective Award"/>
+			<xsd:enumeration value="Compensatory Notice Pay"/>
+			<xsd:enumeration value="Refund of Notional Tax"/>
+			<xsd:enumeration value="Basic Award"/>
+			<xsd:enumeration value="Notice Worked Not Paid"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="ComponentRateStatusType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Rate provided"/>
+			<xsd:enumeration value="No rate defined in law" />
+			<xsd:enumeration value="Data not yet available" />
+			<xsd:enumeration value="Fixed rate of pay" />
+			<xsd:enumeration value="No holiday pay payable"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="OptionalCurrencyType">
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:decimal">
+					<xsd:fractionDigits value="2"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:whiteSpace value="collapse"/>
+					<xsd:length value="0"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
 </xsd:schema>

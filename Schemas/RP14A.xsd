@@ -57,6 +57,70 @@
 											</xsd:simpleType>
 										</xsd:element>
 										
+										<xsd:element name="ComponentPayPerWeek" minOccurs="0" maxOccurs="8">
+											<xsd:annotation>
+												<xsd:documentation>Override for base pay when calculating a component rate.</xsd:documentation>
+											</xsd:annotation>
+
+											<xsd:complexType>
+												<xsd:sequence>
+													<xsd:element name="ComponentType" minOccurs="1" maxOccurs="1">
+														<xsd:simpleType>
+															<xsd:restriction base="xsd:string">
+																<xsd:enumeration value="Redundancy Pay"/>
+																<xsd:enumeration value="Arrears of Pay"/>
+																<xsd:enumeration value="Holiday Pay Taken Not Paid"/>
+																<xsd:enumeration value="Holiday Pay Accrued"/>
+																<xsd:enumeration value="Protective Award"/>
+																<xsd:enumeration value="Compensatory Notice Pay"/>
+																<xsd:enumeration value="Refund of Notional Tax"/>
+																<xsd:enumeration value="Basic Award"/>
+																<xsd:enumeration value="Notice Worked Not Paid"/>
+															</xsd:restriction>
+														</xsd:simpleType>
+													</xsd:element>
+													<xsd:element name="ComponentRate" minOccurs="0" maxOccurs="1">
+														<xsd:simpleType>
+															<xsd:union>
+																<xsd:simpleType>
+																	<xsd:restriction base="xsd:decimal">
+																		<xsd:fractionDigits value="2"/>
+																	</xsd:restriction>
+																</xsd:simpleType>
+																<xsd:simpleType>
+																	<xsd:restriction base="xsd:string">
+																		<xsd:whiteSpace value="collapse"/>
+																		<xsd:length value="0"/>
+																	</xsd:restriction>
+																</xsd:simpleType>
+															</xsd:union>
+														</xsd:simpleType>
+													</xsd:element>
+													<xsd:element name="ComponentRateStatus" minOccurs="1" maxOccurs="1" default="Rate provided">
+														<xsd:annotation>
+															<xsd:documentation>If the component rate is available, and if not, why.</xsd:documentation>
+														</xsd:annotation>
+														<xsd:simpleType>
+															<xsd:restriction base="xsd:string">
+																<!-- Rate has been provided in ComponentRate -->
+																<xsd:enumeration value="Rate provided"/>
+
+																<!-- Placeholder for components where it's not relevant -->
+																<xsd:enumeration value="No rate defined in law" />
+
+																<!-- Placeholder for future interim processes, not used in HP-->
+																<xsd:enumeration value="Data not yet available" />
+
+																<!-- Reasons 52 week rate doesn't apply -->
+																<xsd:enumeration value="Fixed rate of pay" />
+																<xsd:enumeration value="No holiday pay payable"/>
+															</xsd:restriction>
+														</xsd:simpleType>
+													</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+									
 										<xsd:element name="WeeklyPayDay" minOccurs="0">
 											<xsd:annotation>
 												<xsd:documentation>Pay day, if paid weekly. </xsd:documentation>
