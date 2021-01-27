@@ -108,8 +108,9 @@
 																<!-- Placeholder for components where it's not relevant -->
 																<xsd:enumeration value="No rate defined in law" />
 
-																<!-- Placeholder for future interim processes, not used in HP-->
+																<!-- Placeholder for interim processes -->
 																<xsd:enumeration value="Data not yet available" />
+																<xsd:enumeration value="Data to be requested from IP" />
 
 																<!-- Reasons 52 week rate doesn't apply -->
 																<xsd:enumeration value="Fixed rate of pay" />
