@@ -367,6 +367,7 @@
 			<xsd:enumeration value="Rate provided"/>
 			<xsd:enumeration value="No rate defined in law" />
 			<xsd:enumeration value="Data not yet available" />
+			<xsd:enumeration value="Data to be requested from IP" />
 			<xsd:enumeration value="Fixed rate of pay" />
 			<xsd:enumeration value="No holiday pay payable"/>
 		</xsd:restriction>
