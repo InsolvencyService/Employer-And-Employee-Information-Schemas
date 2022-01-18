@@ -255,8 +255,8 @@
 	</xsd:simpleType>
 	<xsd:simpleType name="YesNoType">
 		<xsd:restriction base="xsd:string">
-			<xsd:enumeration value="Y"/>
-			<xsd:enumeration value="N"/>
+			<xsd:enumeration value="Yes"/>
+			<xsd:enumeration value="No"/>
 		</xsd:restriction>
 	</xsd:simpleType>
 	<xsd:complexType name="NameType">
