@@ -53,7 +53,7 @@
 									</xsd:restriction>
 								</xsd:simpleType>
 							</xsd:element>
-							<xsd:element name="MoniesOwedToCompany" minOccurs="0">
+							<xsd:element name="MoneyOwedToEmployer" minOccurs="0">
 								<xsd:simpleType>
 									<xsd:restriction base="xsd:decimal">
 										<xsd:fractionDigits value="2"/>
